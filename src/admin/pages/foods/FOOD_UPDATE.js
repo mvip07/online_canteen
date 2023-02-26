@@ -14,7 +14,13 @@ function ADMIN_UPDATE_FOOD() {
     const [DESCRIPTION, SET_DESCRIPTION] = useState("");
 
     useEffect(() => {
-        SELECTED_FOOD(SET_FOOD, ID)
+      
+        let IS_MOUNTED = true;
+        
+        if (IS_MOUNTED) SELECTED_FOOD(SET_FOOD, ID)
+
+        return () => IS_MOUNTED = false
+        
     }, []);
 
     return (

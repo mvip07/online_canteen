@@ -11,7 +11,13 @@ function ORDER() {
     const [ORDER_CHOOSE, SET_ORDER_CHOOSE] = useState([])
 
     useEffect(() => {
-        ALL_USER_ORDER(SET_ORDER, SET_ORDER_CHOOSE, CHOOSE_SORT)
+        
+        let IS_MOUNTED = true;
+        
+        if (IS_MOUNTED) ALL_USER_ORDER(SET_ORDER, SET_ORDER_CHOOSE, CHOOSE_SORT)
+
+        return () => IS_MOUNTED = false
+        
     }, [])
 
     return (

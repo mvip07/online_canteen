@@ -10,7 +10,13 @@ function ADMIN_ALL_FOOD() {
     const [FOOD, SET_FOOD] = useState([])
 
     useEffect(() => {
-        ALL_FOOD(SET_FOOD)
+
+        let IS_MOUNTED = true;
+        
+        if (IS_MOUNTED) ALL_FOOD(SET_FOOD)
+
+        return () => IS_MOUNTED = false
+        
     }, [])
 
     return (

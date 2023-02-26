@@ -1,4 +1,4 @@
-export const HOST = "http://localhost:8000"
+export const HOST = "https://online-canteen-backend.vercel.app/"
 
 export const URL_USER_ALL = "/user/all"
 export const URL_USER_LOGIN = "/user/login"

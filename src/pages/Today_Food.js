@@ -16,10 +16,18 @@ function TODAY_FOOD() {
 	const WEEKS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 	useEffect(() => {
-		if (TOKEN) {
-			GET_TODAY_ORDER(SET_ORDER)
-			GET_TODAY_FOOD(SET_TODAY_MENU, WEEKS, TODAY_NAME)
+
+		let IS_MOUNTED = true;
+        
+		if (IS_MOUNTED) {
+			if (TOKEN) {
+				GET_TODAY_ORDER(SET_ORDER)
+				GET_TODAY_FOOD(SET_TODAY_MENU, WEEKS, TODAY_NAME)
+			}
 		}
+
+        return () => IS_MOUNTED = false
+
 	}, [TOKEN, TODAY_NAME])
 
 	function ORDERS () {

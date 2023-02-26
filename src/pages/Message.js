@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { CREATE_MESSAGE } from "../crud/message_crud";
 
 function MESSAGES() {
+    
     const [MESSAGE, SET_MESSAGE] = useState("")
+
     return (
         <CONTAINER>
             <div className="container__title">

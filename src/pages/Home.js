@@ -12,8 +12,17 @@ function HOME() {
     const TOKEN = JSON.parse(localStorage.getItem("online-canteen"))?.token
 
     useEffect(() => {
-        if (TOKEN && ALL_AND_TODAY) ALL_FOOD(SET_ALL_MENU)
+
+        let IS_MOUNTED = true;
+        
+        if (IS_MOUNTED) {
+            if (TOKEN && ALL_AND_TODAY) ALL_FOOD(SET_ALL_MENU)
+        }
+        
+        return () => IS_MOUNTED = false
+
     }, [TOKEN, ALL_AND_TODAY])
+
 
     return (
         <CONTAINER>

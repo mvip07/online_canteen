@@ -27,7 +27,13 @@ function COMMENT() {
     }
 
     useEffect(() => {
-        ALL_USER_MESSAGE(SET_MESSAGE, SET_MESSAGE_CHOOSE, CHOOSE_SORT, CHOOSE_DATE)
+
+        let IS_MOUNTED = true;
+        
+        if (IS_MOUNTED) ALL_USER_MESSAGE(SET_MESSAGE, SET_MESSAGE_CHOOSE, CHOOSE_SORT, CHOOSE_DATE)
+
+        return () => IS_MOUNTED = false
+
     }, [CHOOSE_DATE])
 
     return (
